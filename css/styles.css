@@ -1,0 +1,69 @@
+#display {
+  font-family: monospace;
+  line-height: 10px
+}
+
+.pixels {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  margin-bottom: -1px;
+}
+
+.p {
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.robot1 {
+  border: 1px solid black;
+}
+
+.down {background-image: url("../img/down.png")}
+
+.left {background-image: url("../img/left.png")}
+
+.up {background-image: url("../img/up.png")}
+
+.right {
+  background-image: url("../img/left.png");
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.x, .c {background:black}
+
+.t {background: brown}
+.u {background: brown}
+.v {background: orange}
+.w {background: chartreuse}
+
+.n {background-color: #7fff00}
+
+.d {background:brown;}
+
+.o {background: aqua}
+
+.r {
+  background:red;
+}
+
+.b {
+  background:pink;
+}
+
+.s {
+  background: aqua;
+}
+
+/*(/_/g, 'o')
+  .replace(/\[\]/g, 'cc')
+  .replace(/8/g, 'p')
+  .replace(/\[\]/g, 'cc')
+  .replace(/&/g, 'n')
+  .replace(/@/g, 't')
+  .replace(/=/g, 'd')*/
