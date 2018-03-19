@@ -92,7 +92,7 @@ var robot2 = new Robot(44,23);
 var robot3 = new Robot(8,30);
 var robot4 = new Robot(43,33);
 
-var location =0;
+// var location =0;
 
 var xCoord = 0;
 var yCoord = 0;
@@ -106,8 +106,8 @@ for (var i = 1; i < 10; i++){
   color = colorArray[Math.floor(Math.random()*4)];
   myCargo = new cargo(i, xCoord, yCoord, 0, points, 1, color);
   cargoArray.push(myCargo);
-  location = passConvertCoordinates(xCoord, yCoord);
-  console.log("location-1 " + location-1);
+  // location = passConvertCoordinates(xCoord, yCoord);
+  // console.log("location-1 " + location-1);
   // mapLayout = mapLayout.replaceAt(location-1, 'C');
 }
 
