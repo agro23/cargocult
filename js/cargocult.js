@@ -85,6 +85,30 @@ function cargo(id, xCoord, yCoord, heading, points, speed, color) {
   this.color = color;
 }
 
+
+function getXConvertCoordinates(longCoord) {
+  var y = Math.floor(longCoord/50);
+  var x = longCoord - (y * 50);
+  //console.log("x: "+x+" "+"y: "+y);
+  return x;
+}
+
+function getYConvertCoordinates(longCoord) {
+  var y = Math.floor(longCoord/50);
+  var x = longCoord - (y * 50);
+  //console.log("x: "+x+" "+"y: "+y);
+  return y;
+}
+
+function passConvertCoordinates(xcoord,ycoord) {
+  var y = ycoord * 50;
+  return xcoord+y;
+}
+
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
+
 var player1 = new Player(18,39, "up");
 
 var robot1 = new Robot(5,10);
@@ -100,15 +124,16 @@ var colorArray = ["red", "chartreuse", "purple", "yellow"];
 var cargoArray = [];
 var pointsArray = [1,3,5,10];
 for (var i = 1; i < 10; i++){
-  xCoord =  Math.floor(Math.random()*50);
-  yCoord =  Math.floor(Math.random()*42);
+  xCoord =  Math.floor(Math.random()*49)+1;
+  yCoord =  Math.floor(Math.random()*41)+1;
   points = pointsArray[Math.floor(Math.random()*4)];
   color = colorArray[Math.floor(Math.random()*4)];
   myCargo = new cargo(i, xCoord, yCoord, 0, points, 1, color);
   cargoArray.push(myCargo);
-  // location = passConvertCoordinates(xCoord, yCoord);
-  // console.log("location-1 " + location-1);
-  // mapLayout = mapLayout.replaceAt(location-1, 'C');
+  cargoLocation = passConvertCoordinates(xCoord, yCoord);
+  // console.log("cargoLocation-1 " + cargoLocation + " xco: " + xCoord + " yco: " + yCoord);
+  mapLayout = mapLayout.replaceAt(cargoLocation-1, 'c');
+
 }
 
 Robot.prototype.checkForPlayers = function() {
@@ -375,9 +400,7 @@ Player.prototype.move = function(way) {
   }
 }
 
-String.prototype.replaceAt=function(index, replacement) {
-    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
-}
+
 
 
 
@@ -489,24 +512,6 @@ function drawScreen() {
 // goal_lighter
   // goal object
 
-function getXConvertCoordinates(longCoord) {
-  var y = Math.floor(longCoord/50);
-  var x = longCoord - (y * 50);
-  //console.log("x: "+x+" "+"y: "+y);
-  return x;
-}
-
-function getYConvertCoordinates(longCoord) {
-  var y = Math.floor(longCoord/50);
-  var x = longCoord - (y * 50);
-  //console.log("x: "+x+" "+"y: "+y);
-  return y;
-}
-
-function passConvertCoordinates(xcoord,ycoord) {
-  var y = ycoord * 50;
-  return xcoord+y;
-}
 
 var Game = {};
 
